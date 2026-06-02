@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Satoshi';
+  src: url(@/assets/assets/fonts/satoshi-Regular.otf);
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url(@/assets/assets/fonts/ClashDisplay-Medium.otf);
+  font-weight: 400;
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: 'Satoshi',sans-serif;
+}
+h1 {
+  font-size: 26px;
+  font-weight: 600px;
+}
+button {
+  background-color: rgba(233, 239, 244, 0.856);
+  border: none;
+  padding: 10px;
+}
+.container {
+  padding: 80px;
+}
