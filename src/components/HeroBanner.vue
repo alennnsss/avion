@@ -20,5 +20,5 @@ const addLikes = () => {
         color: white;
         font-size: 16px;
         padding: 10px;
-    };
+    }
 </style>
