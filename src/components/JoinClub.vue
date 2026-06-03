@@ -29,7 +29,9 @@
         display: flex;
         flex-direction: column;
         width: 1440px;
-        height: 444px;
+        height: 440px;
+        margin: 30px;
+        margin: 40px;
         justify-content: center;
         align-items: center;
         gap: 30px;

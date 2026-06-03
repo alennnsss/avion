@@ -65,6 +65,7 @@ const handleBuy = () => {
     display: flex;
     background-color: #f9f9f9;
     gap: 67px;
+    height: 400px;
 }
 .title-price {
     font-size: 36px;

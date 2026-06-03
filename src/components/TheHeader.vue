@@ -1,11 +1,25 @@
-<script setup>
-const props = defineProps({
-    cartCount: {
-        type: Number,
-        default: 0
-    }
-})
 
+<script setup>
+import {ref} from 'vue'
+const isLoading = ref(false)
+const handleBuy = () => {
+    isLoading.value=true
+    setTimeout(() => {
+        isLoading.value = false
+    },2000)
+}
+const AvionButton = defineProps({
+    text: {
+        type: String,
+        default: 'Avion button'
+    },
+    theme: {
+        type: String,
+        default: 'dark'
+    },
+    
+
+})
 
 
 </script>
@@ -21,9 +35,9 @@ const props = defineProps({
             <div class="header-right">
                 <div class="cart-wrapper">
                     <img src="../assets/icons/cart.png" alt="Cart" class="icon" />
-                    <span class="cart-badge" v-if="props.cartCount > 0">
+                    <!-- <span class="cart-badge" v-if="props.cartCount > 0">
                         {{ props.cartCount }} 
-                    </span>
+                    </span> -->
                 </div>    
                 <img src="../assets/icons/profile.png" alt="Profile" class="icon" />
             </div>
@@ -54,6 +68,12 @@ const props = defineProps({
             <router-link to="#">
                 Cutlery
             </router-link>
+            <button v-if="isLoading">
+                Loading...
+            </button>
+            <button v-else @click="handleBuy">
+                {{ AvionButton.text }}
+            </button>
         </nav>
         
     </header>
@@ -64,6 +84,10 @@ const props = defineProps({
     }
     h1 {
         font-weight: 400;
+    }
+    .avion-button {
+        background-color: none;
+        max-width: 100px;
     }
     .hero-block__info {
         background-color: white;
