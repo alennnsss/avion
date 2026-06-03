@@ -6,6 +6,8 @@ const props = defineProps({
     }
 })
 
+
+
 </script>
 <template>
     <header class="header-container">
@@ -17,7 +19,12 @@ const props = defineProps({
             <div class="avion">Avion</div>
       
             <div class="header-right">
-                <img src="../assets/icons/cart.png" alt="Cart" class="icon" />
+                <div class="cart-wrapper">
+                    <img src="../assets/icons/cart.png" alt="Cart" class="icon" />
+                    <span class="cart-badge" v-if="props.cartCount > 0">
+                        {{ props.cartCount }} 
+                    </span>
+                </div>    
                 <img src="../assets/icons/profile.png" alt="Profile" class="icon" />
             </div>
         </div>
@@ -25,9 +32,7 @@ const props = defineProps({
 
         </div>
         <nav class="nav">
-            <div class="cart" v-if="props.cartCount > 0">
-                {{ props.cartCount }} Cart
-            </div>
+            
             <router-link to="#">
                 Plant pots
             </router-link>
@@ -50,26 +55,13 @@ const props = defineProps({
                 Cutlery
             </router-link>
         </nav>
-        <div class="hero-block">
-            <div class="hero-block__info">
-                <div class="hero-block__attribute1">
-                    <h1>
-                        Luxury homeware for people who love timeless design quality
-                    </h1>
-                    <span>
-                        Shop the new Spring 2022 collection today
-                    </span>
-                </div>    
-                <div class="hero-block__attribute2">
-                    <button>
-                        View Collection
-                    </button>
-                </div>  
-            </div>     
-        </div>
+        
     </header>
 </template>
 <style scoped>
+    * {
+        font-size: 16px;
+    }
     h1 {
         font-weight: 400;
     }
@@ -82,6 +74,24 @@ const props = defineProps({
         margin-left: 750px;
         gap: 200px;
         padding: 48px 61px 46px 56px;
+    }
+    .cart-wrapper {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+    .cart-badge {
+        position: absolute;
+        top: -0.4rem;
+        right: -0.57rem;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 1.1rem;
     }
     .header-top {
         display: flex;
