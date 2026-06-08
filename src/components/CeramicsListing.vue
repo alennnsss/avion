@@ -29,17 +29,25 @@ const products = [
         price: 399
     } 
 ]
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const handleViewCollection = () => {
+    console.log('Sending analytics event: User navigated to Catalog from home page');   
+    router.push('/catalog')   
+}
 </script>
 <template>
-    <div class="products-container">
-        <div v-for="product in products" :key="product.id" class="products-box">
-            <img :src="product.image" :alt="product.title" class="product-image">
-            <h2>{{ product.title }}</h2>
-            <p>£{{ product.price }}</p>
+        <div class="products-container">
+            <div v-for="product in products" :key="product.id">
+                <router-link :to="`/product/${product.id}`" class="products-box">
+                    <img :src="product.image" :alt="product.title" class="product-image">
+                    <h2>{{ product.title }}</h2>
+                    <p>£{{ product.price }}</p>
+                </router-link>
+            </div>
         </div>
-    </div>
     <div class="view">
-        <button>
+        <button @click="handleViewCollection">
             View Collection
         </button>
     </div>

@@ -7,7 +7,7 @@ import CeramicsListing from './components/CeramicsListing.vue';
 import TheFooter from './components/TheFooter.vue';
 import JoinClub from './components/JoinClub.vue';
 import TheInfo from './components/TheInfo.vue';
-import ProductCart from './components/ProductCart.vue';
+import ProductCart from './views/ProductView.vue';
 import JoinUs from './components/JoinUs.vue';
 // const mockProduct = {
 //   id: 122,
@@ -30,12 +30,9 @@ const changeSubscribe = (email) => {
 <template>
   <div>
      <the-header :cart-count="cartCount"/>
-     <hero-banner/>
-     <brand-differences/>
-     <ceramics-listing/>
-     <the-footer/>
-     <join-club/>
-     <!-- <the-info/>  -->
+     <main class="main-content">
+      <router-view />
+     </main>
      <join-us
       :is-subscribed = "isSubscribed"
      />
