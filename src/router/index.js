@@ -6,7 +6,7 @@ import Mistake from '../views/Mistake.vue';
 
 const routes = [
     {
-        path: '/',
+        path: '/avion',
         name: 'home',
         component: HomeView
     },
