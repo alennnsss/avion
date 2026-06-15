@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router';
 </script>
 <template>
-    <div>
+    <div class="page-not-found">
         <h1>
             Oops! Page not found
         </h1>
@@ -11,5 +11,15 @@ import { RouterLink } from 'vue-router';
         </router-link>
     </div>
 </template>
-<style>
+<style scoped>
+    .page-not-found {
+       
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: center;
+        align-content: center;
+        padding: 40px;
+
+    }
 </style>

@@ -1,27 +1,8 @@
-
 <script setup>
-import {ref} from 'vue'
-const isLoading = ref(false)
-const handleBuy = () => {
-    isLoading.value=true
-    setTimeout(() => {
-        isLoading.value = false
-    },2000)
-}
-const AvionButton = defineProps({
-    text: {
-        type: String,
-        default: 'Avion button'
-    },
-    theme: {
-        type: String,
-        default: 'dark'
-    },
-    
-
-})
-
-
+import { ref, watch, onMounted } from 'vue'
+import { useCartStore } from '../stores/cartStore'
+const cartStore = useCartStore()
+const cart = ref(JSON.parse(localStorage.getItem('avion-cart')) || [])
 </script>
 <template>
     <header class="header-container">
@@ -33,12 +14,14 @@ const AvionButton = defineProps({
             <div class="avion">Avion</div>
       
             <div class="header-right">
-                <div class="cart-wrapper">
-                    <img src="../assets/icons/cart.png" alt="Cart" class="icon" />
-                    <!-- <span class="cart-badge" v-if="props.cartCount > 0">
-                        {{ props.cartCount }} 
-                    </span> -->
-                </div>    
+                <router-link to="/cartview">
+                    <div class="cart-wrapper">
+                        <img src="../assets/icons/cart.png" alt="Cart" class="icon" />
+                        <span class="cart-badge" v-if="cartStore.totalItemsCount > 0">
+                            {{cartStore.totalItemsCount}}
+                        </span>
+                    </div>
+                </router-link>        
                 <img src="../assets/icons/profile.png" alt="Profile" class="icon" />
             </div>
         </div>
@@ -68,12 +51,7 @@ const AvionButton = defineProps({
             <router-link to="#">
                 Cutlery
             </router-link>
-            <button v-if="isLoading">
-                Loading...
-            </button>
-            <button v-else @click="handleBuy">
-                {{ AvionButton.text }}
-            </button>
+            
         </nav>
         
     </header>

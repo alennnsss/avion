@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import CatalogView from '../views/CatalogView.vue'
 import ProductView from '../views/ProductView.vue'
 import Mistake from '../views/Mistake.vue';
-
+import CartView from '../views/CartView.vue';
 const routes = [
     {
         path: '/avion',
@@ -21,10 +21,16 @@ const routes = [
         component: ProductView
     },
     {
+        path: '/cartview',
+        name: 'cart',
+        component: CartView
+    },
+    {
         path: '/:pathMatch(.*)*',
         name: 'error-404',
         component: Mistake
     }
+    
 ]
 const router = createRouter({
     history: createWebHashHistory(import.meta.env.BASE_URL),

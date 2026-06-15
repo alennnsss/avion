@@ -17,6 +17,11 @@ const loadProducts = async() => {
         isLoading.value = false
     }
 }
+const cartProducts = [
+    {
+        
+    }
+]
 onMounted(() => {
     loadProducts()
 })
@@ -25,7 +30,7 @@ onMounted(() => {
     <div v-if="isLoading">
         Loading..
     </div>
-    <div class="product-box" v-else>
+    <div class="product-box">
         <div class="image-box">
             <img :src="product.image" :alt="product.title">
         </div>
