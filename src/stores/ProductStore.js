@@ -13,7 +13,7 @@ export const useProductsStore = defineStore('products', () => {
         } catch(error) {
             console.log('Ошибка',error.message)
         } finally {
-            isLoading = false
+            isLoading.value = false
         }
 
     }
