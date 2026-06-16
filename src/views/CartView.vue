@@ -43,11 +43,14 @@
                 <h2>Quantity</h2>
                 <div class="quantity-item"  v-for="item in cartStore.items" :key="item.id">
                     <div class="number">
+                        <button @click="cartStore.increaseQuantity(item.id)">
+                            +
+                        </button>
                         {{ item.quantity }}
+                        <button @click="cartStore.decreaseQuantity(item.id)">
+                            -
+                        </button>
                     </div>
-                    <button @click="handleBuyClick(item.id)">
-                        Remove
-                    </button>
                 </div>
             </div>
             <div class="total-box">
@@ -63,9 +66,6 @@
 <script setup>
     import { useCartStore } from '../stores/cartStore';
     const cartStore = useCartStore()
-    const handleBuyClick = (id) => {
-        cartStore.removeFromCart(id)
-    }    
 </script>
 
 <style scoped>
@@ -109,7 +109,7 @@
     .closing {
         display: flex;
         justify-content: space-around;
-        gap: 300px;
+        gap: 80px;
     }
     .quantity-item,
     .total-price {
@@ -143,24 +143,25 @@
         gap: 24px;
     }
     .cart-box {
-        width: 1280px;
-        gap: -20px;
+        
+        /* gap: -20px; */
         padding: 63px 72px 62px 54px;
         background-color: white;
         display: flex; 
-        gap: 110px;
+        gap: 140px;
     }
     .products-box {
         display: flex;
         flex-direction: column;
         gap: 44px;
-        width: 700px;
+        
     }
     .number {
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: #F9F9F9;
+        gap: 20px;
     }
     * {
         font-size: 16px;

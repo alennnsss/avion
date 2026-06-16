@@ -8,6 +8,20 @@ export const useCartStore = defineStore('cart',() => {
     const totalItemsCount = computed(() => {
         return items.value.reduce((total,item) => total + item.quantity,0)
     })
+    const increaseQuantity = (productId) => {
+        const item = items.value.find(item => item.id === productId)
+        if(item) {
+            return item.quantity += 1
+        }
+    }
+    const decreaseQuantity = (productId) => {
+        const item = items.value.find(item => item.id === productId)
+        if(item.quantity > 1) {
+            return item.quantity -= 1
+        } else {
+            removeFromCart(productId)
+        }
+    }
     //3 общая сумма корзины
     const totalPrice = computed(() => {
         return items.value.reduce((total,item) => total + (item.price * item.quantity),0)
@@ -33,7 +47,9 @@ export const useCartStore = defineStore('cart',() => {
         totalItemsCount,
         totalPrice, 
         addToCart, 
-        removeFromCart
+        removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
     }
 
 })
