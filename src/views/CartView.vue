@@ -25,6 +25,9 @@
                         <p>
                             £{{ item.price }}
                         </p>
+                        <button @click="cartStore.removeFromCart(item.id)">
+                            X
+                        </button>
                     </div>    
                 </div>
                 <div class="closing">
@@ -66,6 +69,9 @@
 <script setup>
     import { useCartStore } from '../stores/cartStore';
     const cartStore = useCartStore()
+    // const handleBuyClick = (productId) => {
+    //     cartStore.removeFromCart(productId)
+    // }
 </script>
 
 <style scoped>
