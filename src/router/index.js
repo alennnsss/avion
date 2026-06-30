@@ -10,7 +10,7 @@ import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
 const routes = [
     {
-        path: '/avion',
+        path: '/',
         name: 'home',
         component: HomeView
     },
@@ -54,7 +54,7 @@ const routes = [
     
 ]
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory('/avion/'),
     routes
 })
 router.beforeEach((to,from) => {
