@@ -37,9 +37,11 @@
                     <h1>
                         Subtotal £{{ cartStore.totalPrice.toFixed(2) }}
                     </h1>
-                    <button>
-                        Go to checkout
-                    </button>
+                    <router-link to="/checkout">
+                        <button>
+                            Go to checkout
+                        </button>
+                    </router-link>    
                 </div>      
             </div>
             <div class="quantity-box">
@@ -68,10 +70,21 @@
 
 <script setup>
     import { useCartStore } from '../stores/cartStore';
+    import { onMounted, onUpdated, onUnmounted, ref } from 'vue';
+    const testValue = ref(0)
+    onMounted(() => {
+        console.log('Компонент смонтирован')
+    })
+    onUpdated(() => {
+        console.log('Компонент обновился');
+        
+    })
+    onUnmounted(() => {
+        console.log('Компонент уничтожен');
+        //` clearInterval()
+    })
     const cartStore = useCartStore()
-    // const handleBuyClick = (productId) => {
-    //     cartStore.removeFromCart(productId)
-    // }
+    
 </script>
 
 <style scoped>

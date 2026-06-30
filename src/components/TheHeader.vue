@@ -1,8 +1,10 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import { useCartStore } from '../stores/cartStore'
+import { useAuthStore } from '../stores/authStore';
 const cartStore = useCartStore()
 const cart = ref(JSON.parse(localStorage.getItem('avion-cart')) || [])
+const authStore = useAuthStore()
 </script>
 <template>
     <header class="header-container">
@@ -51,7 +53,12 @@ const cart = ref(JSON.parse(localStorage.getItem('avion-cart')) || [])
             <router-link to="#">
                 Cutlery
             </router-link>
-            
+            <router-link to="login" v-if="authStore.isAuthenticated !== true">
+                Login
+            </router-link>
+            <router-link to="logout" v-else>
+                Logout
+            </router-link>
         </nav>
         
     </header>
@@ -59,6 +66,9 @@ const cart = ref(JSON.parse(localStorage.getItem('avion-cart')) || [])
 <style scoped>
     * {
         font-size: 16px;
+    }
+    header {
+        width: 100%;
     }
     h1 {
         font-weight: 400;
@@ -114,7 +124,7 @@ const cart = ref(JSON.parse(localStorage.getItem('avion-cart')) || [])
         display: flex;
         justify-content: space-around;
         flex-direction: column;
-        width: 1400px;
+        width: 1440px;
         height: 704px;
         background-image: url(../assets/icons/background-image.jpg);
         background-size: cover;

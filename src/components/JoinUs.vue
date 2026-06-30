@@ -125,7 +125,7 @@ const handleBuy = () => {
     }
     footer {
         
-        width: 1550px;
+        width: 100%;
         height: 580px;
         padding: 30px;
         background-color: #2A254B;

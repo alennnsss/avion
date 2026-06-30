@@ -24,7 +24,7 @@
     </div>    
 </template>
 <style scoped>
-
+    
     .container {
         display: flex;
         width: 1440px;

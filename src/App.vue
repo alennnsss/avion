@@ -30,16 +30,23 @@ const changeSubscribe = (email) => {
 <template>
   <div>
      <the-header :cart-count="cartCount"/>
-     <main class="main-content">
-      <router-view />
-     </main>
-     <join-us
-      :is-subscribed = "isSubscribed"
-     />
+     <div class="gap">
+      <main class="main-content">
+        <router-view />
+      </main>
+      <join-us
+        :is-subscribed = "isSubscribed"
+      />
+     </div> 
   </div>  
 </template>
 
 
-<style >
-  
+<style scoped>
+    .gap {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    
 </style>

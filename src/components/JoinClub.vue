@@ -28,14 +28,13 @@
     .join {
         display: flex;
         flex-direction: column;
-        width: 1440px;
+        width: 1400px;
         height: 440px;
-        margin: 30px;
-        margin: 40px;
+        
         justify-content: center;
         align-items: center;
         gap: 30px;
-        background-image: url(../assets/icons/background-image.jpg);
+        background-image: url(../assets/icons/view.jpg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
