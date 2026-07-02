@@ -24,14 +24,18 @@ const authStore = useAuthStore()
                         </span>
                     </div>
                 </router-link>        
-                <img src="../assets/icons/profile.png" alt="Profile" class="icon" />
+                <router-link to="/profile">
+                    <img src="../assets/icons/profile.png" alt="Profile" class="icon" />
+                </router-link>
             </div>
         </div>
         <div class="border">
 
         </div>
         <nav class="nav">
-            
+            <router-link to="/">
+                Main Page
+            </router-link>
             <router-link to="#">
                 Plant pots
             </router-link>
@@ -173,9 +177,13 @@ const authStore = useAuthStore()
         margin-right: 20px;
     }
 
-    /* .nav {
+    .nav {
         display: flex;
         gap: 44px;
-    } */
-
+        width: 1300px;
+    }
+    .header-right {
+        display: flex;
+        gap: 20px;
+    }
 </style>

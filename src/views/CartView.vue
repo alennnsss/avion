@@ -71,6 +71,8 @@
 <script setup>
     import { useCartStore } from '../stores/cartStore';
     import { onMounted, onUpdated, onUnmounted, ref } from 'vue';
+    import ProfileOrders from '../components/ProfileOrders.vue';
+    import ProfileSettings from '../components/ProfileSettings.vue';
     const testValue = ref(0)
     onMounted(() => {
         console.log('Компонент смонтирован')

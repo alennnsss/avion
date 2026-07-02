@@ -78,7 +78,9 @@ const handleBuy = () => {
             </div>
             
         </div>    
+        <div class="border">
 
+        </div>
         <div class="ending">
             <p>Copyright 2026 Avion LTD</p>
             <div class="icons">
@@ -99,9 +101,14 @@ const handleBuy = () => {
     .menu {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        width: 108px;
+        gap: 20px;
+        width: 260px;
         height: 175px;
+    }
+    .border {
+        border: 1px solid #4E4D93;
+        width: 1350px;
+        margin-left: 40px;
     }
     input {
         width: 354px;
@@ -127,7 +134,7 @@ const handleBuy = () => {
         
         width: 100%;
         height: 580px;
-        padding: 30px;
+        padding: 40px;
         background-color: #2A254B;
         color: white;
     }
@@ -136,6 +143,7 @@ const handleBuy = () => {
         justify-content: space-between;
         gap: 60px;
         height: 100px;
+        padding: 40px;
     }
     .icons {
         display: flex;

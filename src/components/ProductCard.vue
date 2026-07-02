@@ -17,6 +17,27 @@
                 <button class="product-card-btn" @click="handleBuyClick">
                     Add to cart
                 </button>
+                <Quick :isOpen ="isQuickViewOpen" >
+                    <template #button>
+                        <button @click="openModal">
+                            Quick View
+                        </button>
+                    </template>
+                    <template #default>
+                        <div class="product-info">
+                            <img :src="props.image" :alt="props.title" width="200px;">
+                            <p>{{ props.description }}</p>
+                            <button class="product-card-btn" @click="handleBuyClick">
+                                Add to cart
+                            </button>
+                            <label for="product-quan">Quantity</label>
+                            <input id="product-quan" type="number" v-model="productQuantity">
+                            <button @click="closeModal">
+                                Close
+                            </button>
+                        </div>
+                    </template>
+                </Quick>
             </div>
         </div>
     </div>
@@ -25,8 +46,8 @@
 <script setup>
 import { ref } from 'vue'
 import { useCartStore } from '../stores/cartStore';
+import Quick from './Quick.vue';
 const cartStore = useCartStore()
-
 const props = defineProps({
     image: {
         type: String,
@@ -59,8 +80,22 @@ const handleBuyClick = () => {
         description: props.description,
     },productQuantity.value)
 }
+const isQuickViewOpen = ref(false)
+const openModal = () => {
+    isQuickViewOpen.value = true
+}
+const closeModal = () => {
+    isQuickViewOpen.value = false
+}
 </script>
 
-<style>
+<style scoped>
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        color: white;
+        width: 300px;
+    }
 
 </style>

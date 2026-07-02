@@ -8,6 +8,9 @@ import CartView from '../views/CartView.vue';
 import CheckoutView from '../views/CheckoutView.vue';
 import LoginView from '../views/LoginView.vue';
 import LogoutView from '../views/LogoutView.vue';
+import ProfileView from '../views/ProfileView.vue';
+import ProfileOrders from '../components/ProfileOrders.vue';
+import ProfileSettings from '../components/ProfileSettings.vue';
 const routes = [
     {
         path: '/',
@@ -17,7 +20,12 @@ const routes = [
     {
         path: '/catalog',
         name: 'catalog',
-        component: CatalogView
+        component: CatalogView,
+        children: [
+            {
+                path: '/catalog/quick'
+            }
+        ]
     },
     {
         path: '/product/:id',
@@ -45,6 +53,28 @@ const routes = [
         path: '/logout',
         name: 'logout',
         component: LogoutView
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: ProfileView,
+        meta: {requiresAuth: true},
+        children: [
+            {
+                path: '',
+                redirect: '/profile/orders'
+            },
+            {
+                path: 'orders',
+                name: 'profile-orders',
+                component: ProfileOrders
+            },
+            {
+                path: 'settings',
+                name: 'profile-settings',
+                component: ProfileSettings
+            }
+        ]
     },
     {
         path: '/:pathMatch(.*)*',

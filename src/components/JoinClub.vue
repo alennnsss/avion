@@ -30,7 +30,7 @@
         flex-direction: column;
         width: 1400px;
         height: 440px;
-        
+        color: white;
         justify-content: center;
         align-items: center;
         gap: 30px;
@@ -43,6 +43,10 @@
     input {
         width: 354px;
         height: 56px;
+        
+    }
+    input::placeholder {
+        padding: 32px 17px;
     }
     button {
         width: 118px;
@@ -53,9 +57,15 @@
     .right {
         display: flex;
         flex-direction: row;
+        gap: 36px;
 
+    }
+    .right__item {
+        margin: 8px;
     }
     .right__item::before {
         content: url(../assets/icons/right.png);
+        display: inline-block; 
+        margin-right: 8px;  
     }
 </style>
